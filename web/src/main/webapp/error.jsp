@@ -1,0 +1,46 @@
+<%@ page language="java" isErrorPage="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <title><fmt:message key="errorPage.title"/></title>
+</head>
+
+<body id="error">
+<div class="content-wrapper">
+    <section class="content">
+        <div class="callout callout-danger">
+            <h3 style="margin-top: 0px;"><fmt:message key='errorPage.heading'/></h3>
+            <fmt:message key="errorPage.unexpectedMessage"></fmt:message>
+            <%@ include file="/common/messages.jsp" %>
+            <%=exception.toString()%>
+            <%=exception.getMessage()%>
+        </div>
+    </section>
+</div>
+
+<%--<div id="content-header">--%>
+    <%--<h1><fmt:message key=""/></h1>--%>
+<%--</div>--%>
+
+<%--<div class="container-fluid">--%>
+    <%--<div class="row-fluid">--%>
+        <%--<div class="span12">--%>
+            <%--<div class="widget-box">--%>
+                <%--<div class="widget-content">--%>
+
+                    <%--<fmt:message key="errorPage.unexpectedMessage"></fmt:message>--%>
+                    <%--<%@ include file="/common/messages.jsp" %>--%>
+                    <%--<%=exception.toString()%>--%>
+                    <%--<%=exception.getMessage()%>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</div>--%>
+</body>
+</html>

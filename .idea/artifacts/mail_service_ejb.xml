@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="mail-service:ejb">
+    <output-path>$PROJECT_DIR$/mail-service/target</output-path>
+    <root id="archive" name="mail-service-1.0.jar">
+      <element id="artifact" artifact-name="mail-service:ejb exploded" />
+    </root>
+  </artifact>
+</component>

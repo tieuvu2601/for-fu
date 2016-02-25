@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="mail-service:ejb exploded">
+    <output-path>$PROJECT_DIR$/mail-service/target/mail-service-1.0</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="mail-service/ejb/EJB" />
+      <element id="module-output" name="mail-service" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,17 @@
+desc RPT_AP_DOMAIN
+Name   Null     Type          
+------ -------- ------------- 
+TYPE   NOT NULL VARCHAR2(30)  
+CODE   NOT NULL VARCHAR2(30)  
+NAME            VARCHAR2(100) 
+STATUS NOT NULL NUMBER(1)     
+VALUE           VARCHAR2(20) 
+
+
+REM INSERTING into RPT_AP_DOMAIN
+SET DEFINE OFF;
+Insert into RPT_AP_DOMAIN (TYPE,CODE,NAME,STATUS,VALUE) values ('CHANNEL_TYPE','CH','C?a hàng',1,'1');
+Insert into RPT_AP_DOMAIN (TYPE,CODE,NAME,STATUS,VALUE) values ('CHANNEL_TYPE','DL','??i lý',1,'2');
+Insert into RPT_AP_DOMAIN (TYPE,CODE,NAME,STATUS,VALUE) values ('CHANNEL_TYPE','AM','KAM/AM',1,'3');
+Insert into RPT_AP_DOMAIN (TYPE,CODE,NAME,STATUS,VALUE) values ('QUOTA_TYPE','IN','Trong',1,'1');
+Insert into RPT_AP_DOMAIN (TYPE,CODE,NAME,STATUS,VALUE) values ('QUOTA_TYPE','OUT','Ngoài',1,'2');

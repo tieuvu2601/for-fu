@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="vms-ear:ear">
+    <output-path>$PROJECT_DIR$/vms-ear/target</output-path>
+    <root id="archive" name="vms.ear">
+      <element id="artifact" artifact-name="vms-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>

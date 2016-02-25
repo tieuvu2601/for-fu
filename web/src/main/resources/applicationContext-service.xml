@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/UserManagementSessionEJB!com.banvien.vmsreport.core.business.UserManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.UserManagementLocalBean" id="userManagementSessionEJB"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/DepartmentManagementSessionEJB!com.banvien.vmsreport.core.business.DepartmentManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.DepartmentManagementLocalBean" id="departmentManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/PermissionManagementSessionEJB!com.banvien.vmsreport.core.business.PermissionManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.PermissionManagementLocalBean" id="permissionManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/PermissionGroupManagementSessionEJB!com.banvien.vmsreport.core.business.PermissionGroupManagenmentLocalBean" business-interface="com.banvien.vmsreport.core.business.PermissionGroupManagenmentLocalBean" id="permissionGroupManagenmentLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/RoleACLManagementSessionEJB!com.banvien.vmsreport.core.business.RoleACLManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.RoleACLManagementLocalBean" id="roleACLManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/RoleManagementSessionEJB!com.banvien.vmsreport.core.business.RoleManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.RoleManagementLocalBean" id="roleManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/UserACLManagementSessionEJB!com.banvien.vmsreport.core.business.UserACLManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.UserACLManagementLocalBean" id="userACLManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/UserRoleACLManagementSessionEJB!com.banvien.vmsreport.core.business.UserRoleACLManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.UserRoleACLManagementLocalBean" id="userRoleACLManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/UserGroupManagementSessionEJB!com.banvien.vmsreport.core.business.UserGroupManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.UserGroupManagementLocalBean" id="userGroupManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/UserGroupACLManagementSessionEJB!com.banvien.vmsreport.core.business.UserGroupACLManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.UserGroupACLManagementLocalBean" id="userGroupACLManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/UserGroupRoleACLManagementSessionEJB!com.banvien.vmsreport.core.business.UserGroupRoleACLManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.UserGroupRoleACLManagementLocalBean" id="userGroupRoleACLManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/QuanLyNhaThauManagementSessionEJB!com.banvien.vmsreport.core.business.GoiThauNhaThauManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.GoiThauNhaThauManagementLocalBean" id="QuanLyNhaThauManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/TienDoManagementSessionEJB!com.banvien.vmsreport.core.business.TienDoManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.TienDoManagementLocalBean" id="tienDoManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/BidManagementSessionEJB!com.banvien.vmsreport.core.business.BidManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.BidManagementLocalBean" id="bidManagementLocalBean"/>
+
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/QuyMoManagementSessionEJB!com.banvien.vmsreport.core.business.QuyMoManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.QuyMoManagementLocalBean" id="quyMoManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/NguonvonManagementSessionEJB!com.banvien.vmsreport.core.business.NguonvonManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.NguonvonManagementLocalBean" id="nguonVonManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/LoaiManagementSessionEJB!com.banvien.vmsreport.core.business.LoaiManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.LoaiManagementLocalBean" id="loaiManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/LanhdaoManagementSessionEJB!com.banvien.vmsreport.core.business.LanhdaoManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.LanhdaoManagementLocalBean" id="lanhDaoManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/CanCuManagementSessionEJB!com.banvien.vmsreport.core.business.CanCuManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.CanCuManagementLocalBean" id="canCuManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/HinhthucManagementSessionEJB!com.banvien.vmsreport.core.business.HinhthucManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.HinhthucManagementLocalBean" id="hinhThucManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/TinhchatManagementSessionEJB!com.banvien.vmsreport.core.business.TinhchatManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.TinhchatManagementLocalBean" id="tinhChatManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/TinhtrangManagementSessionEJB!com.banvien.vmsreport.core.business.TinhtrangManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.TinhtrangManagementLocalBean" id="tinhTrangManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/LoaiBaoManagementSessionEJB!com.banvien.vmsreport.core.business.LoaiBaoManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.LoaiBaoManagementLocalBean" id="loaiBaoManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/NoiDungManagementSessionEJB!com.banvien.vmsreport.core.business.NoiDungManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.NoiDungManagementLocalBean" id="noiDungManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/GoiThauNhanVienManagementSessionEJB!com.banvien.vmsreport.core.business.GoiThauNhanVienManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.GoiThauNhanVienManagementLocalBean" id="goiThauNhanVienManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/NhaThauManagementSessionEJB!com.banvien.vmsreport.core.business.NhaThauManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.NhaThauManagementLocalBean" id="nhaThauManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/KinhPhiManagementSessionEJB!com.banvien.vmsreport.core.business.KinhPhiManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.KinhPhiManagementLocalBean" id="kinhPhiManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/DangBaoManagementSessionEJB!com.banvien.vmsreport.core.business.DangBaoManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.DangBaoManagementLocalBean" id="dangBaoManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/BidLuuTruManagementSessionEJB!com.banvien.vmsreport.core.business.BidLuuTruManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.BidLuuTruManagementLocalBean" id="bidLuuTruManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/HoSoThauManagementSessionEJB!com.banvien.vmsreport.core.business.HoSoThauManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.HoSoThauManagementLocalBean" id="hoSoThauManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/NoiDungHoSoManagementSessionEJB!com.banvien.vmsreport.core.business.NoiDungHoSoManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.NoiDungHoSoManagementLocalBean" id="noiDungHoSoManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/Report102ManagementSessionEJB!com.banvien.vmsreport.core.business.Report102ManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.Report102ManagementLocalBean" id="Report102ManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/Report103ManagementSessionEJB!com.banvien.vmsreport.core.business.Report103ManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.Report103ManagementLocalBean" id="Report103ManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/Report104ManagementSessionEJB!com.banvien.vmsreport.core.business.Report104ManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.Report104ManagementLocalBean" id="Report104ManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/Report105ManagementSessionEJB!com.banvien.vmsreport.core.business.Report105ManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.Report105ManagementLocalBean" id="Report105ManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/Report106ManagementSessionEJB!com.banvien.vmsreport.core.business.Report106ManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.Report106ManagementLocalBean" id="Report106ManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/Report107ManagementSessionEJB!com.banvien.vmsreport.core.business.Report107ManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.Report107ManagementLocalBean" id="Report107ManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/Report108ManagementSessionEJB!com.banvien.vmsreport.core.business.Report108ManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.Report108ManagementLocalBean" id="Report108ManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/Report109ManagementSessionEJB!com.banvien.vmsreport.core.business.Report109ManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.Report109ManagementLocalBean" id="Report109ManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/StoreFileManagementSessionEJB!com.banvien.vmsreport.core.business.StoreFileManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.StoreFileManagementLocalBean" id="StoreFileManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/BieuMauFieldManagementSessionEJB!com.banvien.vmsreport.core.business.BieuMauFieldManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.BieuMauFieldManagementLocalBean" id="bieuMauFieldManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/BieuMauFieldFieldManagementSessionEJB!com.banvien.vmsreport.core.business.BieuMauFieldFieldManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.BieuMauFieldFieldManagementLocalBean" id="bieuMauFieldFieldManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/FormTemplateManagementSessionEJB!com.banvien.vmsreport.core.business.FormTemplateManagementLocalBean" business-interface="com.banvien.vmsreport.core.business.FormTemplateManagementLocalBean" id="FormTemplateManagementLocalBean"/>
+    <jee:local-slsb jndi-name="java:app/mail-service-impl-1.0/EmailSessionBeanEJB!com.banvien.vmsreport.mailer.EmailLocalBean" business-interface="com.banvien.vmsreport.mailer.EmailLocalBean" id="emailSessionEJB"/>
+
+    <bean id="userSecurityAdvice" class="com.banvien.vmsreport.security.MyUserDetailService">
+        <property name="userService" ref="userManagementSessionEJB"/>
+        <property name="userGroupService" ref="userGroupManagementLocalBean"/>
+        <property name="userRoleACLService" ref="userRoleACLManagementLocalBean"/>
+        <property name="ldapUserLookup" ref="ldapUserLookup"/>
+       <!-- <property name="permissionService" ref="permissionGroupManagenmentLocalBean"/>-->
+    </bean>
+
+    <bean id="propertyConfigurer" class="com.banvien.vmsreport.util.MyPropertyConfigurer">
+
+    </bean>
+</beans>

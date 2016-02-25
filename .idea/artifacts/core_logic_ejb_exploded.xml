@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="core-logic:ejb exploded">
+    <output-path>$PROJECT_DIR$/core-logic/target/core-logic-1.0</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="core-logic/ejb/EJB" />
+      <element id="module-output" name="core-logic" />
+    </root>
+  </artifact>
+</component>

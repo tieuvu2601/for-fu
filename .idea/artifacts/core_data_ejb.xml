@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="core-data:ejb">
+    <output-path>$PROJECT_DIR$/core-data/target</output-path>
+    <root id="archive" name="core-data-1.0.jar">
+      <element id="artifact" artifact-name="core-data:ejb exploded" />
+    </root>
+  </artifact>
+</component>

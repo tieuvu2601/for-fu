@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="core-data" transaction-type="JTA">
+
+        <jta-data-source>java:jboss/datasources/VMS_QLXT</jta-data-source>
+        <class>com.banvien.vmsreport.core.data.entity.DepartmentEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.PermissionGroupEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.PermissionEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.RoleEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.RoleACLEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.UserGroupEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.UserGroupACLEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.UserEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.UserACLEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.UserRoleACLEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.UserGroupRoleACLEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmGiaidoanEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.AttachFileEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.BophanEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DangbaoEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmHinhthucgtEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmLanhdaoEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmLoaiEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmLoaibaoEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmLoaibieumauEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmNguonvonEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmNhathauEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmNoidungEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmNoidunghosoEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmQuyMoEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmThamsoguimailEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmThamsohethongEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmThamsohethongBkEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmThamsoquimoEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmTinhchatgtEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmTinhtrangEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.GoithauEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.GoithauNhanvienEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.GoithauNhathauEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.HosoluutruEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.HosothauEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.KinhphiEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.TiendoEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmLoaibieumaufeildEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmLoaibieumaufeildFieldEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.StoreFileEntity</class>
+
+        <class>com.banvien.vmsreport.core.data.entity.DmDataActionEntity</class>
+        <class>com.banvien.vmsreport.core.data.entity.DmCanCuEntity</class>
+
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <!--<property name="hibernate.default_schema" value="vmsreport" />-->
+            <property name="hibernate.default_schema" value="VMS_QLXT" />
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.default_batch_fetch_size" value="20"/>
+            <property name="hibernate.jdbc.fetch_size" value="20"/>
+            <property name="hibernate.jdbc.batch_size" value="20"/>
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+            <property name="hibernate.dialect" value="com.banvien.vmsreport.core.data.dialect.VMSOracleDialect"/>
+            <property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup"/>
+            <property name="jboss.entity.manager.jndi.name" value="java:jboss/vmsPromotionEntityManager"/>
+            <property name="jboss.entity.manager.factory.jndi.name" value="java:jboss/vmsPromotionEntityManagerFactory"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:oracle:thin:@192.168.2.10:1521:ORCL"/>
+            <property name="eclipselink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="eclipselink.jdbc.user" value="VMS_QLXT"/>
+            <property name="eclipselink.jdbc.password" value="123456"/>
+            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@192.168.2.10:1521:ORCL"/>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.connection.username" value="VMS_QLXT"/>
+            <property name="hibernate.connection.password" value="123456"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:oracle:thin:@192.168.2.10:1521:ORCL"/>
+            <property name="openjpa.ConnectionDriverName" value="oracle.jdbc.OracleDriver"/>
+            <property name="openjpa.ConnectionUserName" value="VMS_QLXT"/>
+            <property name="openjpa.ConnectionPassword" value="123456"/>
+            <property name="toplink.jdbc.url" value="jdbc:oracle:thin:@192.168.2.10:1521:ORCL"/>
+            <property name="toplink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="toplink.jdbc.user" value="VMS_QLXT"/>
+            <property name="toplink.jdbc.password" value="123456"/>
+
+        </properties>
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+        <validation-mode>CALLBACK</validation-mode>
+
+    </persistence-unit>
+</persistence>

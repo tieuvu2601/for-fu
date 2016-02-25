@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="core-logic-impl:ejb">
+    <output-path>$PROJECT_DIR$/core-logic-impl/target</output-path>
+    <root id="archive" name="core-logic-impl-1.0.jar">
+      <element id="artifact" artifact-name="core-logic-impl:ejb exploded" />
+    </root>
+  </artifact>
+</component>

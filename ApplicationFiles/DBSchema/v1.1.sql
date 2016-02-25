@@ -1,0 +1,188 @@
+ALTER TABLE  DM_HINHTHUCGT ADD  FROMVALUE NUMBER;
+ALTER TABLE  DM_HINHTHUCGT ADD  TOVALUE NUMBER;
+
+UPDATE DM_HINHTHUCGT SET FROMVALUE = '10000000';
+UPDATE DM_HINHTHUCGT SET TOVALUE = '30000000';
+
+ALTER TABLE DM_HINHTHUCGT MODIFY FROMVALUE NUMBER CONSTRAINT HINHTHUC_GT_FROMVALUE NOT NULL;
+ALTER TABLE DM_HINHTHUCGT MODIFY TOVALUE NUMBER CONSTRAINT HINHTHUC_GT_TOVALUE NOT NULL;
+
+
+ALTER TABLE  DM_QUIMO ADD  FROMVALUE NUMBER;
+ALTER TABLE  DM_QUIMO ADD  TOVALUE NUMBER;
+
+UPDATE DM_QUIMO SET FROMVALUE = '10000000';
+UPDATE DM_QUIMO SET TOVALUE = '30000000';
+
+ALTER TABLE DM_QUIMO MODIFY FROMVALUE NUMBER CONSTRAINT DM_QUIMO_GT_FROMVALUE NOT NULL;
+
+
+-- ALTER TABLE DM_QUIMO MODIFY TOVALUE NUMBER CONSTRAINT DM_QUIMO_GT_TOVALUE NOT NULL;
+-- ALTER TABLE DM_QUIMO MODIFY TOVALUE NULL;
+
+
+-- Update TINH TRANG
+
+
+ALTER TABLE DM_TINHTRANG ADD CONSTRAINT unique_ma_tinh_trang UNIQUE (MATINHTRANG);
+
+ALTER TABLE DM_TINHTRANG ADD COLUMN DISPLAYORDER NUMBER;
+
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(12, 'TDPA', 'Thẩm định phương án', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(13, 'TPDPA', 'Trình Phê Duyệt PA', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(14, 'TDHSMT', 'Thẩm định hồ sơ mời thầu', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(15, 'TDMSMCGCT', 'Thẩm định hồ sơ mời chào giá cạnh tranh', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(16, 'TDHSYC', 'Thẩm định hồ sơ yêu cầu', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(17, 'TPDHS', 'Trình phê duyệt HSMT/HSYC', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(18, 'CBMT', 'Chuẩn bị mời thầu', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(19, 'DMT', 'Đang mời thầu', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(20, 'DDG', 'Đang đánh giá', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(21, 'DTDKQ', 'Đang thẩm định kết quả', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(22, 'TPDKQ', 'Trình phê duyệt kết quả', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(23, 'TBKQ', 'Thông báo kết quả', 1);
+INSERT INTO DM_TINHTRANG (MSTINHTRANG, MATINHTRANG, TENTINHTRANG, ACTIVE) VALUES(24, 'HT', 'Hoàn tất', 1);
+
+
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Thẩm định phương án', DISPLAYORDER = '1' WHERE MATINHTRANG = 'TDPA';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Trình phê duyệt PA', DISPLAYORDER = '2' WHERE MATINHTRANG = 'TPDPA';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Thẩm định hồ sơ mời thầu', DISPLAYORDER = '3' WHERE MATINHTRANG = 'TDHSMT';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Thẩm định hồ sơ mời chào giá cạnh tranh', DISPLAYORDER = '4' WHERE MATINHTRANG = 'TDMSMCGCT';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Thẩm định hồ sơ yêu cầu', DISPLAYORDER = '5' WHERE MATINHTRANG = 'TDHSYC';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Trình phê duyệt HSMT/HSYC', DISPLAYORDER = '6' WHERE MATINHTRANG = 'TPDHS';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Chuẩn bị mời thầu', DISPLAYORDER = '7' WHERE MATINHTRANG = 'CBMT';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Đang mời thầu', DISPLAYORDER = '8' WHERE MATINHTRANG = 'DMT';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Đang đánh giá', DISPLAYORDER = '9' WHERE MATINHTRANG = 'DDG';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Đang thẩm định kết quả', DISPLAYORDER = '10' WHERE MATINHTRANG = 'DTDKQ';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Trình phê duyệt kết quả', DISPLAYORDER = '11' WHERE MATINHTRANG = 'TPDKQ';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Thông báo kết quả', DISPLAYORDER = '12' WHERE MATINHTRANG = 'TBKQ';
+UPDATE DM_TINHTRANG SET TENTINHTRANG = 'Hoàn tất', DISPLAYORDER = '13' WHERE MATINHTRANG = 'HT';
+
+-- REMOVE OLD DATA -----
+
+UPDATE GOITHAU SET MSTINHTRANG =
+(SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'TBKQ' )
+WHERE MSTINHTRANG = (SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'DCBDB');
+
+DELETE FROM DM_TINHTRANG WHERE MATINHTRANG = 'DCBDB';
+--------------------
+UPDATE GOITHAU SET MSTINHTRANG =
+(SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'TDPA' )
+WHERE MSTINHTRANG = (SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'TDDA');
+
+DELETE FROM DM_TINHTRANG WHERE MATINHTRANG = 'TDDA';
+---------------------
+UPDATE GOITHAU SET MSTINHTRANG =
+(SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'TPDKQ' )
+WHERE MSTINHTRANG = (SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'DTKQ');
+
+DELETE FROM DM_TINHTRANG WHERE MATINHTRANG = 'DTKQ';
+---------------------
+UPDATE GOITHAU SET MSTINHTRANG =
+(SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'TDPA' )
+WHERE MSTINHTRANG = (SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'DLHS');
+
+DELETE FROM DM_TINHTRANG WHERE MATINHTRANG = 'DLHS';
+---------------------
+UPDATE GOITHAU SET MSTINHTRANG =
+(SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'TDPA' )
+WHERE MSTINHTRANG = (SELECT MSTINHTRANG FROM DM_TINHTRANG WHERE MATINHTRANG = 'DTHS');
+
+DELETE FROM DM_TINHTRANG WHERE MATINHTRANG = 'DTHS';
+
+
+ALTER TABLE GOITHAU ADD GIATRIGOITHAUTRUOCTHUE NUMBER;
+
+
+
+-- ADD ACTION DATA FOR SEND SMS AND EMAIL
+
+CREATE TABLE DATA_ACTION(
+  MSDATAACTION NUMBER(24,0) PRIMARY KEY,
+  PHONENUMBER VARCHAR2(100),
+	EMAIL VARCHAR2(100), 
+	SMSCONTENT VARCHAR2(1000), 
+	EMAILCONTENT VARCHAR2(4000), 
+	ACTIONDATE DATE DEFAULT SYSDATE, 
+	TENNGUOINHAN VARCHAR2(1000), 
+	IS_SMS NUMBER, 
+	IS_EMAILED NUMBER, 
+	FLAG_MAIL NUMBER, 
+	FLAG_SMS NUMBER, 
+	DATE_MAIL DATE, 
+	DATE_SMS DATE
+);
+CREATE SEQUENCE DATA_ACTION_SEQ MINVALUE 1 MAXVALUE 999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+
+ALTER TABLE DM_NHATHAU ADD GIAYPHEPKINHDOANH VARCHAR(255);
+
+alter table goithau add constraints goithau_lanhdao_fk foreign key (mslanhdao) REFERENCES dm_lanhdao(mslanhdao) ;
+
+
+ CREATE TABLE DMCanCu(
+  CanCuID NUMBER(24,0) PRIMARY KEY,
+  MaCanCu VARCHAR2(100) NOT NULL,
+  Noidung VARCHAR2(100),
+  GhiChu VARCHAR2(100),
+	CreatedDate TIMESTAMP NOT NULL,
+  ModifiedDate TIMESTAMP
+);
+CREATE SEQUENCE  DMCanCu_SEQ  MINVALUE 1 MAXVALUE 999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+
+alter table DM_NOIDUNGHOSO add giaduthausauthue float;
+
+delete from role;
+
+insert into role(roleid, code, name) values(1, 'XT', 'Xét thầu');
+insert into role(roleid, code, name) values(2, 'TD', 'Thẩm định');
+
+
+create table TimeLineProperty{
+  TimeLinePropertyID Number(24, 0) primary key,
+  Name varchar2(100),
+  HoSo varchar2(100),
+  DonViLap varchar2(100),
+  NguoiKy varchar2(100),
+  NguoiDuyet varchar2(100),
+  ReferCol varchar2(100),
+  DisplayOrder integer
+}
+
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol, DisplayOrder)
+  values(1, 'Đề xuất kế hoạch', 'Tờ trình chủ trương', 'Đơn vị chủ trì', 'Đơn vị chủ trì', 'Giám Đốc', '', 1);
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol)
+  values(1, 'Ủy quyền(nếu có)', 'Giấy ủy quyền(nếu có)', 'Đơn vị chủ trì', 'Giám đốc', '', '', 2);
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol)
+  values(1, 'Lập phương án', 'Phương án', 'Đơn vị chủ trì', 'Đơn vị chủ trì', 'GĐ/PGĐ', '', 3);
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol)
+  values(1, 'Trình phương án', 'Tờ trình phê duyệt phương án', 'Đơn vị chủ trì', 'Đơn vị chủ trì', '', '', 4);
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol)
+  values(1, 'Thẩm định phương án', 'Báo cáo thẩm định phương án', 'P.KHĐT', 'P.KHĐT', '', '', 5);
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol)
+  values(1, 'Phê duyệt phương án', 'Quyết định phê duyệt phương án', 'P.KHĐT', 'GĐ/PGĐ', '', '', 6);
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol)
+  values(1, 'Thành lập tổ chuyên gia', 'Quyết định thành lập tổ chuyên gia đấu thầu', 'P.KHĐT', 'P.TCHC GĐ/PGĐ', '', '', 7);
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol)
+  values(1, 'Lập hồ sơ', 'Hồ sơ mời thầu', 'P.KHĐT', 'GĐ/PGĐ', '', '', 8);
+insert into TimeLineProperty(TimeLineID, Name, HoSo, DonViLap, NguoiKy, NguoiDuyet, ReferCol)
+  values(1, 'Lập hồ sơ', 'Hồ sơ mời thầu', 'P.KHĐT', 'GĐ/PGĐ', '', '', 8);
+
+
+create table TimeLineHinhThuc {
+  TimeLineHinhThucID Number(24, 0) primary key,
+  MsHinhThuc NUMBER(24, 0),
+  TimeLinePropertyID Number(24, 0),
+  NumberDate integer,
+  isWork boolean,
+  isSmaller boolean
+}
+
+update department set active = 0;
+update department set name = 'Mobifone Hồ Chí Minh 2' where code like 'CNHCM6';
+insert into department(departmentid, code, name) values (56, 'XETT', 'P.Kế hoạch - Đầu tư');
+insert into department(departmentid, code, name) values (57, 'DHTKH', 'Đài 1090');
+update department set active = 1 where code in ('KHDN', 'MBF2KPP', 'XETT', 'TCHC', 'CNTT', 'KTTC', 'CSKH', 'BHM','DHTKH', 'CNHCM1', 'CNHCM6');
+update users set departmentid = 56 where departmentid = 36;
+
+
+
+

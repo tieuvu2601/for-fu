@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/UserManagementSessionEJB!com.banvien.portal.core.business.UserManagementLocalBean" business-interface="com.banvien.portal.core.business.UserManagementLocalBean" id="userManagementSessionEJB"/>
+    <!--<jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/UserGroupManagementSessionEJB!com.banvien.portal.core.business.UserGroupManagementLocalBean" business-interface="com.banvien.portal.core.business.UserGroupManagementLocalBean" id="userGroupManagementLocalBean"/>-->
+    <!--<jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/AuthoringTemplateManagementSessionEJB!com.banvien.portal.core.business.AuthoringTemplateManagementLocalBean" business-interface="com.banvien.portal.core.business.AuthoringTemplateManagementLocalBean" id="authoringTemplateManagementSessionEJB"/>-->
+    <!--<jee:local-slsb jndi-name="java:app/core-logic-impl-1.0/RoleManagementSessionEJB!com.banvien.portal.core.business.RoleManagementLocalBean" business-interface="com.banvien.portal.core.business.RoleManagementLocalBean" id="RoleManagementLocalBean"/>-->
+
+
+    <bean id="userSecurityAdvice" class="com.banvien.portal.security.MyUserDetailService">
+        <property name="userManagementLocalBean" ref="userManagementSessionEJB"/>
+    </bean>
+
+    <bean id="propertyConfigurer" class="com.banvien.portal.util.MyPropertyConfigurer">
+
+    </bean>
+</beans>

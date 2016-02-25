@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="core-data" transaction-type="JTA">
+
+        <jta-data-source>java:jboss/datasources/vmsReportDS</jta-data-source>
+        <class>com.banvien.portal.core.data.entity.DepartmentEntity</class>
+        <class>com.banvien.portal.core.data.entity.SubDepartmentEntity</class>
+        <class>com.banvien.portal.core.data.entity.RoleEntity</class>
+        <class>com.banvien.portal.core.data.entity.UserACLEntity</class>
+        <class>com.banvien.portal.core.data.entity.UserGroupEntity</class>
+        <class>com.banvien.portal.core.data.entity.UserGroupACLlEntity</class>
+        <class>com.banvien.portal.core.data.entity.UserEntity</class>
+        <class>com.banvien.portal.core.data.entity.RoleACLEntity</class>
+        <class>com.banvien.portal.core.data.entity.UserRoleACLEntity</class>
+        <class>com.banvien.portal.core.data.entity.PermissionEntity</class>
+
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.default_schema" value="vmsreport" />
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.default_batch_fetch_size" value="20"/>
+            <property name="hibernate.jdbc.fetch_size" value="20"/>
+            <property name="hibernate.jdbc.batch_size" value="20"/>
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+            <property name="hibernate.dialect" value="com.banvien.portal.core.data.dialect.VMSOracleDialect"/>
+            <property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup"/>
+            <property name="jboss.entity.manager.jndi.name" value="java:jboss/vmsPromotionEntityManager"/>
+            <property name="jboss.entity.manager.factory.jndi.name" value="java:jboss/vmsPromotionEntityManagerFactory"/>
+
+        </properties>
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+        <validation-mode>CALLBACK</validation-mode>
+
+    </persistence-unit>
+</persistence>
